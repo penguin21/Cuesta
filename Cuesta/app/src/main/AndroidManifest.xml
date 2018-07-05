@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Lista_dulces"
+            android:label="@string/title_activity_lista_dulces"></activity>
     </application>
 
 </manifest>

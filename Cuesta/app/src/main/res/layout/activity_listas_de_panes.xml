@@ -6,17 +6,5 @@
     android:layout_height="match_parent"
     tools:context=".ListasDePanes">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="466dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="79dp" />
-    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>
