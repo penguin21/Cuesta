@@ -1,5 +1,4 @@
 package com.pepe.cuesta;
-
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -10,7 +9,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Lista_dulces extends Activity {
+public class lista_dulces extends AppCompatActivity {
+
     ArrayList<dulceInfo> listaDulces;
     RecyclerView recyclerDulces;
 
@@ -23,8 +23,9 @@ public class Lista_dulces extends Activity {
 
     }
 
-    private void llenarProductos() {
-        listaDulces.add(new dulceInfo("",R.drawable.d);
+    private void llenarDulces() {
+        listaDulces.add(new dulceInfo("Brazo Gitano","",R.drawable.BrazoGitano));
+        listaDulces.add(new dulceInfo("Ponche","",R.drawable.Ponches));
     }
 
     public void onClick(View view) {
@@ -48,7 +49,7 @@ public class Lista_dulces extends Activity {
             recyclerDulces.setLayoutManager(new GridLayoutManager(this,3));
         }
 
-        llenarProductos();
+        llenarDulces();
 
         AdaptadorDulces adapter=new AdaptadorDulces(listaDulces);
 
@@ -56,12 +57,12 @@ public class Lista_dulces extends Activity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),
-                        "Selección: "+listaPersonajes.get
-                                (recyclerPersonajes.getChildAdapterPosition(view))
+                        "Selección: "+listaDulces.get
+                                (recyclerDulces.getChildAdapterPosition(view))
                                 .getNombre(),Toast.LENGTH_SHORT).show();
             }
         });
 
-        recyclerPersonajes.setAdapter(adapter);
+        recyclerDulces.setAdapter(adapter);
     }
 }

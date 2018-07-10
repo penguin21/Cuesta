@@ -1,46 +1,59 @@
 package com.pepe.cuesta;
 
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+/**
+ * Created by CHENAO on 3/07/2017.
+ */
+
 public class AdaptadorDulces
-        extends RecyclerView.Adapter<AdaptadorPersonajes.ViewHolderPersonajes>
+        extends RecyclerView.Adapter<AdaptadorDulces.ViewHolderDulces>
         implements View.OnClickListener{
 
-    ArrayList<PersonajeVo> listaPersonajes;
+    ArrayList<dulceInfo> listaDulces;
     private View.OnClickListener listener;
 
-    public AdaptadorPersonajes(ArrayList<PersonajeVo> listaPersonajes) {
-        this.listaPersonajes = listaPersonajes;
+    public AdaptadorDulces(ArrayList<dulceInfo> listaDulces) {
+        this.listaDulces = listaDulces;
     }
 
     @Override
-    public ViewHolderPersonajes onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolderDulces onCreateViewHolder(ViewGroup parent, int viewType) {
         int layout=0;
         if (Utilidades.visualizacion==Utilidades.LIST){
-            layout=R.layout.iem_list_personajes;
+            layout=R.layout.iem_lista_de_dulces;
         }else {
-            layout=R.layout.item_grid_personajes;
+            layout=R.layout.iem_grid_lista_de_dulces;
         }
 
         View view= LayoutInflater.from(parent.getContext()).inflate(layout,null,false);
 
         view.setOnClickListener(this);
 
-        return new ViewHolderPersonajes(view);
+        return new ViewHolderDulces(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolderPersonajes holder, int position) {
-        holder.etiNombre.setText(listaPersonajes.get(position).getNombre());
+    public void onBindViewHolder(ViewHolderDulces holder, int position) {
+        holder.etiNombre.setText(listaDulces.get(position).getNombre());
 
         if (Utilidades.visualizacion==Utilidades.LIST){
-            holder.etiInformacion.setText(listaPersonajes.get(position).getInfo());
+            holder.etiInformacion.setText(listaDulces.get(position).getInfo());
         }
 
-        holder.foto.setImageResource(listaPersonajes.get(position).getFoto());
+        holder.foto.setImageResource(listaDulces.get(position).getFoto());
     }
 
     @Override
     public int getItemCount() {
-        return listaPersonajes.size();
+        return listaDulces.size();
     }
 
     public void setOnClickListener(View.OnClickListener listener){
@@ -54,12 +67,12 @@ public class AdaptadorDulces
         }
     }
 
-    public class ViewHolderPersonajes extends RecyclerView.ViewHolder {
+    public class ViewHolderDulces extends RecyclerView.ViewHolder {
 
         TextView etiNombre,etiInformacion;
         ImageView foto;
 
-        public ViewHolderPersonajes(View itemView) {
+        public ViewHolderDulces(View itemView) {
             super(itemView);
             etiNombre= (TextView) itemView.findViewById(R.id.idNombre);
             if (Utilidades.visualizacion==Utilidades.LIST){

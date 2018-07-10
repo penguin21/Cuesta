@@ -4,17 +4,17 @@ package com.pepe.cuesta;
  * Created by CHENAO on 3/07/2017.
  */
 
-public class dulceinfo {
+public class dulceInfo {
 
     private String nombre;
     private String info;
     private int foto;
 
-    public dulceinfo(){
+    public dulceInfo(){
 
     }
 
-    public dulceinfo(String nombre, String info, int foto) {
+    public dulceInfo(String nombre, String info, int foto) {
         this.nombre = nombre;
         this.info = info;
         this.foto = foto;
